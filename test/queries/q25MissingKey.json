@@ -1,0 +1,41 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg != 95 && avg > 90 && dept == 'cpsc' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_dept":"cpsc"
+                    }
+                },
+                {
+                    "NOT": {
+                        "EQ": {
+                            "courses_avg": 92
+                        }
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": "courses_ is not a valid key"
+        }
+    }
+}

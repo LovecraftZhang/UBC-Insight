@@ -1,0 +1,72 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 97",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "AND":[
+                        {
+                            "AND":[
+                                {
+                                    "AND": {
+                                        "LT": {
+                                            "courses_avg": 50
+                                        },
+                                        "GT": {
+                                            "courses_avg": 50
+                                        }
+                                    }
+                                },
+                                {
+                                    "NOT": {
+                                        "LT": {
+                                            "courses_avg": 60
+                                        }
+                                    }
+                                }
+                                ]
+                        },
+                        {
+                            "IS": {
+                                "courses_dept":"cpsc"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "AND": [
+                        {
+                            "GT": {
+                                "courses_avg": 90
+                            }
+                        },
+                        {
+                            "GT": {
+                                "courses_avg": 91
+                            }
+                        }
+                    ]
+                },
+                {
+                    "LT": {
+                        "courses_avg": 50
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "result": [{"error": ""}]
+        }
+    }
+}

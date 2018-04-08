@@ -1,0 +1,35 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg != 95 && avg > 90 && dept == 'cpsc' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "NOT": {
+
+                    "GT": {
+                        "courses_avg": 90
+                    },
+
+
+                    "IS": {
+                        "courses_dept": "cpsc"
+                    }
+                }
+
+
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error":"InvalidContent","message":"Invalid JSON: Unexpected token : in JSON at position 16"
+        }
+        }
+}

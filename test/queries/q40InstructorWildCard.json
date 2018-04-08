@@ -1,0 +1,41 @@
+{
+	"title": "SELECT dept, id, avg WHERE avg != 95 && avg > 90 && dept == 'cpsc' ORDER BY avg",
+	"query": {
+		"WHERE": {
+			"AND": [
+				{
+					"GT": {
+						"courses_avg": 70
+					}
+				},
+				{
+					"IS": {
+						"courses_instructor":"*holmes*"
+					}
+				},
+				{
+					"NOT": {
+						"EQ": {
+							"courses_avg": 92
+						}
+					}
+				}
+			]
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"courses_instructor",
+				"courses_id",
+				"courses_avg"
+			],
+			"ORDER": "courses_avg",
+			"FORM": "TABLE"
+		}
+	},
+	"response": {
+		"code": 200,
+		"body": {
+			"result": [{"courses_instructor":"holmes, william","courses_id":"103","courses_avg":70.29},{"courses_instructor":"holmes, william","courses_id":"103","courses_avg":73.8},{"courses_instructor":"casey, brett;dooley, kent;frohlich, jiri;halstead, anne catherine;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;urquhart, nadine;vallance, hilary","courses_id":"406","courses_avg":77.3},{"courses_instructor":"dooley, kent;frohlich, jiri;hauff, kristin;hill, john stuart;holmes, daniel;jung, benjamin;mattman, andre;monsalve, maria victoria;palaty, jan;pudek, morris;schreiber, william;tomalty, cheryl;tucker, tracy;vallance, hilary","courses_id":"406","courses_avg":77.85},{"courses_instructor":"holmes, reid","courses_id":"410","courses_avg":79},{"courses_instructor":"halstead, anne catherine;holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy","courses_id":"407","courses_avg":79.7},{"courses_instructor":"dooley, kent;frohlich, jiri;hill, john stuart;holmes, daniel;mattman, andre;monsalve, maria victoria;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;vallance, hilary","courses_id":"406","courses_avg":80.78},{"courses_instructor":"casey, brett;dooley, kent;frohlich, jiri;halstead, anne catherine;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;urquhart, nadine;vallance, hilary","courses_id":"406","courses_avg":81},{"courses_instructor":"holmes, reid","courses_id":"310","courses_avg":81.17},{"courses_instructor":"dooley, kent;frohlich, jiri;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;monsalve, maria victoria;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;vallance, hilary","courses_id":"406","courses_avg":83.91},{"courses_instructor":"halstead, anne catherine;holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy","courses_id":"407","courses_avg":84.5},{"courses_instructor":"holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy","courses_id":"407","courses_avg":84.91},{"courses_instructor":"holmes, daniel;jung, benjamin;keown, paul anthony;li, dailin;nislow, corey;pudek, morris;purssell, roy;xenakis, jennifer","courses_id":"407","courses_avg":85.6},{"courses_instructor":"casey, brett;dooley, kent;frohlich, jiri;halstead, anne catherine;hill, john stuart;holmes, daniel;keller, bernd;mattman, andre;nimmo, michael;pudek, morris;schreiber, william;tomalty, cheryl;urquhart, nadine;vallance, hilary","courses_id":"406","courses_avg":85.87},{"courses_instructor":"beley, lisa;harrison, nicholas;holmes, jonathan","courses_id":"474","courses_avg":86},{"courses_instructor":"holmes, daniel;keown, paul anthony;li, dailin;mattman, andre;pudek, morris;purssell, roy","courses_id":"407","courses_avg":88.27},{"courses_instructor":"beley, lisa;harrison, nicholas;holmes, jonathan","courses_id":"474","courses_avg":88.57},{"courses_instructor":"holmes, reid","courses_id":"507","courses_avg":89},{"courses_instructor":"halstead, anne catherine;holmes, daniel;keown, paul anthony;li, dailin;martz, walter;mattman, andre;pudek, morris;purssell, roy","courses_id":"407","courses_avg":89.07}]
+		}
+	}
+}

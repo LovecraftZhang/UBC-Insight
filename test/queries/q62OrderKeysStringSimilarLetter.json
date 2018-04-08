@@ -1,0 +1,60 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 70",
+    "query": {
+        "WHERE": {
+            "OR": [
+                {
+                    "IS": {
+                        "rooms_shortname": "SWNG*"
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_shortname": "SRC*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 300
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_shortname",
+                "rooms_lon",
+                "maxSeats",
+                "maxLat"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "rooms_shortname"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "rooms_shortname",
+                "rooms_lon"
+            ],
+            "APPLY": [
+                {
+                    "maxSeats": {
+                        "MAX": "rooms_seats"
+                    }
+                },
+                {
+                    "maxLat": {
+                        "MAX": "rooms_lat"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"rooms_shortname":"WOOD","rooms_lon":-123.24673,"maxSeats":503,"maxLat":49.26478},{"rooms_shortname":"WESB","rooms_lon":-123.24937,"maxSeats":325,"maxLat":49.26517},{"rooms_shortname":"SWNG","rooms_lon":-123.25431,"maxSeats":190,"maxLat":49.26293},{"rooms_shortname":"SRC","rooms_lon":-123.24894,"maxSeats":299,"maxLat":49.2683},{"rooms_shortname":"OSBO","rooms_lon":-123.24467,"maxSeats":442,"maxLat":49.26047},{"rooms_shortname":"LSC","rooms_lon":-123.24494,"maxSeats":350,"maxLat":49.26236},{"rooms_shortname":"HEBB","rooms_lon":-123.25165,"maxSeats":375,"maxLat":49.2661},{"rooms_shortname":"ESB","rooms_lon":-123.25224,"maxSeats":350,"maxLat":49.26274},{"rooms_shortname":"CIRS","rooms_lon":-123.25314,"maxSeats":426,"maxLat":49.26207}]}
+    }
+}

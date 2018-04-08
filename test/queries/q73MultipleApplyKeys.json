@@ -1,0 +1,58 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 70",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "rooms_furniture": "*Tables*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 200
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_shortname",
+                "maxSeats",
+                "sumLat",
+                "rooms_type"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "maxSeats",
+                    "sumLat",
+                    "rooms_type"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "rooms_shortname",
+                "rooms_lon",
+                "rooms_type"
+            ],
+            "APPLY": [
+                {
+                    "maxSeats": {
+                        "MAX": "rooms_seats"
+                    }
+                },
+                {
+                    "sumLat": {
+                        "SUM": "rooms_lat"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"rooms_shortname":"OSBO","rooms_type":"Open Design General Purpose","maxSeats":442,"sumLat":49.26},{"rooms_shortname":"HEBB","rooms_type":"Tiered Large Group","maxSeats":375,"sumLat":49.27},{"rooms_shortname":"LSC","rooms_type":"Tiered Large Group","maxSeats":350,"sumLat":98.52},{"rooms_shortname":"SRC","rooms_type":"TBD","maxSeats":299,"sumLat":147.8},{"rooms_shortname":"ANGU","rooms_type":"Tiered Large Group","maxSeats":260,"sumLat":49.26},{"rooms_shortname":"PHRM","rooms_type":"Tiered Large Group","maxSeats":236,"sumLat":49.26},{"rooms_shortname":"LSK","rooms_type":"Tiered Large Group","maxSeats":205,"sumLat":49.27}]}
+    }
+}

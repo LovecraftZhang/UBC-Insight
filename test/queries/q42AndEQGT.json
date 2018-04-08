@@ -1,0 +1,41 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg != 95 && avg > 90 && dept == 'cpsc' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "OR": [
+                        {
+                            "EQ": {
+                                "courses_pass": 75
+                            }
+                        },
+                        {
+                            "GT": {
+                                "courses_fail": 75
+                            }
+                        }
+                    ]
+                },
+                {
+                    "IS": {
+                        "courses_dept": "cpsc"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"courses_dept":"cpsc","courses_id":"322","courses_avg":70.75},{"courses_dept":"cpsc","courses_id":"110","courses_avg":71.22},{"courses_dept":"cpsc","courses_id":"110","courses_avg":72.28},{"courses_dept":"cpsc","courses_id":"110","courses_avg":72.63},{"courses_dept":"cpsc","courses_id":"121","courses_avg":72.78},{"courses_dept":"cpsc","courses_id":"210","courses_avg":72.85},{"courses_dept":"cpsc","courses_id":"110","courses_avg":73.25},{"courses_dept":"cpsc","courses_id":"404","courses_avg":73.27},{"courses_dept":"cpsc","courses_id":"221","courses_avg":74.2},{"courses_dept":"cpsc","courses_id":"121","courses_avg":76.06},{"courses_dept":"cpsc","courses_id":"310","courses_avg":79.12},{"courses_dept":"cpsc","courses_id":"310","courses_avg":79.12},{"courses_dept":"cpsc","courses_id":"311","courses_avg":80.15},{"courses_dept":"cpsc","courses_id":"311","courses_avg":80.15},{"courses_dept":"cpsc","courses_id":"319","courses_avg":85.59},{"courses_dept":"cpsc","courses_id":"319","courses_avg":85.59}]}
+        }
+}

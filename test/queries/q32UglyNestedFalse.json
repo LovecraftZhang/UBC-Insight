@@ -1,0 +1,90 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg >|| avg > 90 && dept == 'adhe' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "OR": [
+                        {
+                            "AND": [
+                                {
+                                    "GT": {
+                                        "courses_avg": 90
+                                    }
+                                },
+                                {
+                                    "IS": {
+                                        "courses_dept": "adhe"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "EQ": {
+                                "courses_avg": 95
+                            }
+                        },
+                        {
+                            "AND": [
+                                {
+                                    "GT": {
+                                        "courses_avg": 93
+                                    }
+                                },
+                                {
+                                    "IS": {
+                                        "courses_dept": "cpsc"
+                                    }
+                                },
+                                {
+                                    "NOT": {
+                                        "LT": {
+                                            "courses_avg": 80
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "AND": [
+                                {
+                                    "GT": {
+                                        "courses_avw": 93
+                                    }
+                                },
+                                {
+                                    "IS": {
+                                        "courses_dept": "*adhe"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "NOT": {
+                        "NOT": {
+                            "IS": {
+                                "courses_dept": "cpsc"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": "course_avw is not a valid key"
+        }
+    }
+}

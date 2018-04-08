@@ -1,0 +1,33 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg > 100 OR avg < 0 ORDER BY avg",
+    "query": {
+        "WHERE": {
+                "OR": [
+                    {
+                        "GT": {"courses_avg": 100}
+                    },
+                    {
+                        "LT": {
+                            "courses_avg": 0
+                        }
+                    }
+                ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": []
+
+        }
+        }
+}

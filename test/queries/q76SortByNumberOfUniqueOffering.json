@@ -1,0 +1,56 @@
+{
+    "title": "Group not in column and multiple keys",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "rooms_furniture": "*Tables*"
+                    }
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 200
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_shortname",
+                "maxSeats",
+                "maxLat"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "maxSeats",
+                    "maxLat"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "rooms_shortname",
+                "rooms_lon",
+                "rooms_type"
+            ],
+            "APPLY": [
+                {
+                    "maxSeats": {
+                        "MAX": "rooms_seats"
+                    }
+                },
+                {
+                    "maxLat": {
+                        "SUM": "rooms_lat"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"rooms_shortname":"OSBO","maxSeats":442,"maxLat":49.26},{"rooms_shortname":"HEBB","maxSeats":375,"maxLat":49.27},{"rooms_shortname":"LSC","maxSeats":350,"maxLat":98.52},{"rooms_shortname":"SRC","maxSeats":299,"maxLat":147.8},{"rooms_shortname":"ANGU","maxSeats":260,"maxLat":49.26},{"rooms_shortname":"PHRM","maxSeats":236,"maxLat":49.26},{"rooms_shortname":"LSK","maxSeats":205,"maxLat":49.27}]}
+    }
+}

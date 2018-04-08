@@ -1,0 +1,54 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 70",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_dept": "cpsc"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "overallAvg",
+                "count"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "overallAvg"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "count"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                },
+                {
+                    "count": {
+                        "COUNT": "courses_instructor"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error":"group cannot contain apply key"
+        }
+    }
+}

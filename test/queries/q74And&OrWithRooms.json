@@ -1,0 +1,70 @@
+{
+    "title": "Group not in column and multiple keys",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "IS": {
+                        "rooms_furniture": "*Tables*"
+                    }
+                },
+                {
+                    "OR": [
+                        {
+                            "IS": {
+                                "rooms_shortname": "OSBO"
+                            }
+                        },
+                        {
+                            "IS": {
+                                "rooms_shortname": "HEBB"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "GT": {
+                        "rooms_seats": 50
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_shortname",
+                "maxSeats",
+                "maxLat"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "maxSeats",
+                    "maxLat"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "rooms_shortname",
+                "rooms_lon",
+                "rooms_type"
+            ],
+            "APPLY": [
+                {
+                    "maxSeats": {
+                        "MAX": "rooms_seats"
+                    }
+                },
+                {
+                    "maxLat": {
+                        "SUM": "rooms_lat"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body":{"result":[{"rooms_shortname":"OSBO","maxSeats":442,"maxLat":49.26},{"rooms_shortname":"HEBB","maxSeats":375,"maxLat":49.27},{"rooms_shortname":"HEBB","maxSeats":54,"maxLat":147.8}]}
+    }
+}

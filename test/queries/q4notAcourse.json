@@ -1,0 +1,26 @@
+{
+    "title": "SELECT dept, id, avg WHERE dept == 'notAcourse' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_dept": "notAcourse"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": []
+
+        }
+        }
+}

@@ -1,0 +1,25 @@
+{
+    "title": "SELECT dept, id, avg WHERE dept == 'notAcourse' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "asdfsdaf":"asdfwef"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_id",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error":"asdfsdaf is not a valid key"
+        }
+        }
+}

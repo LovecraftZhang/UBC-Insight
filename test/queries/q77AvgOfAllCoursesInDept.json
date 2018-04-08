@@ -1,0 +1,33 @@
+{
+    "title": "Group not in column and multiple keys",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_dept":"cpsc"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "overallAvg"
+            ],
+            "ORDER": "overallAvg"
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_dept"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"courses_dept":"cpsc","overallAvg":77.58}]}
+    }
+}

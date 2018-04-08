@@ -1,0 +1,16 @@
+{
+    "query1": "course query for cpsc courses with average > 90",
+    "query2": "AND query: non cpsc courses with average > 99, grouped by instructors",
+    "query3": "OR query: not pass>0 , grouped by instructors",
+    "query4": "none of the following without transformation",
+    "query5": "selected every field descending order",
+    "query6": "none of the following with all not",
+    "query7": "OR NOTs with a lot of fields including empty fields",
+    "query8": "",
+    "query11": " ",
+    "query12": " ",
+    "query13": " ",
+    "query14": " ",
+    "query15": " "
+}
+

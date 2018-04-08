@@ -1,0 +1,62 @@
+{
+    "title": "SELECT dept, id, avg WHERE avg != 95 && avg > 90 && dept == 'cpsc' ORDER BY avg",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "GT": {
+                        "rooms_seats": 90
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_shortname":"DMP"
+                    }
+                },
+                {
+                    "NOT": {
+                        "EQ": {
+                            "rooms_seats": 92
+                        }
+                    }
+                }
+            ]
+        },
+        "WHERE2": {
+            "AND": [
+                {
+                    "GT": {
+                        "rooms_seats": 90
+                    }
+                },
+                {
+                    "IS": {
+                        "rooms_shortname":"DMP"
+                    }
+                },
+                {
+                    "NOT": {
+                        "EQ": {
+                            "rooms_seats": 92
+                        }
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "rooms_name",
+                "rooms_number",
+                "rooms_seats"
+            ],
+            "ORDER": {"dirs": "UP", "keys": ["rooms_seats"]},
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": ""
+        }
+    }
+}

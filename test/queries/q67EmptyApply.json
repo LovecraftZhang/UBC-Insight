@@ -1,0 +1,40 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 70",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_dept": "cpsc"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "courses_title"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": []
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"courses_title":"thry of automata"},{"courses_title":"student seminar"},{"courses_title":"software eng"},{"courses_title":"machine learn i"},{"courses_title":"m.sc major essay"},{"courses_title":"honours thesis"},{"courses_title":"computl ling 1"},{"courses_title":"comp comm protcl"},{"courses_title":"artif intell 2"},{"courses_title":"alg in bioin"}]}
+    }
+}

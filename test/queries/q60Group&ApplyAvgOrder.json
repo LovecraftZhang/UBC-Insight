@@ -1,0 +1,47 @@
+{
+    "title": "SELECT dept, avg WHERE avg > 70",
+    "query": {
+        "WHERE": {
+            "AND":[
+                {
+                    "GT": {
+                        "courses_avg": 90
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_dept": "cpsc"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "overallAvg"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "overallAvg"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[{"courses_title":"m.sc major essay","overallAvg":95},{"courses_title":"computl ling 1","overallAvg":94.5},{"courses_title":"thry of automata","overallAvg":92.55},{"courses_title":"honours thesis","overallAvg":92.45},{"courses_title":"software eng","overallAvg":91.79},{"courses_title":"student seminar","overallAvg":91.3},{"courses_title":"alg in bioin","overallAvg":91.25},{"courses_title":"machine learn i","overallAvg":90.88},{"courses_title":"artif intell 2","overallAvg":90.71},{"courses_title":"comp comm protcl","overallAvg":90.67}]}
+    }
+}

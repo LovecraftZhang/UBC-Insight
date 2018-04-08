@@ -1,0 +1,32 @@
+{
+    "WHERE": {
+        "AND": [
+            {
+                "GT": {
+                    "courses_avg": 90
+                }
+            },
+            {
+                "IS": {
+                    "courses_dept":"cpsc"
+                }
+            },
+            {
+                "NOT": {
+                    "EQ": {
+                        "courses_avg": 92
+                    }
+                }
+            }
+        ]
+    },
+    "OPTIONS": {
+        "COLUMNS": [
+            "courses_dept",
+            "courses_id",
+            "courses_avg"
+        ],
+        "ORDER": "courses_avg",
+        "FORM": "TABLE"
+    }
+}
